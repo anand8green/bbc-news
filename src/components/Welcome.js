@@ -6,8 +6,10 @@ function Welcome() {
     const [{ countryName }, dispatch] = GlobalData()
 
     return (
-        <div>
-            Welcome to BBC, {countryName}
+        <div className="container">
+            <div className="wrapper">
+                Welcome to BBC, {countryName}
+            </div>
         </div>
     )
 }

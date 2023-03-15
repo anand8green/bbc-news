@@ -1,5 +1,6 @@
 import React from 'react'
 import { GlobalData } from '../GlobalState'
+import NewsItem from './NewsItem';
 
 function NewsSection() {
 
@@ -8,21 +9,19 @@ function NewsSection() {
     console.log(newsArticle);
 
     if (isLoading) {
-        return <h1> Loading...</h1>
+        return <span className='loading'> Loading...</span>
     } else {
 
-        return (
-            <div>
-                {
-                    newsArticle.map(news => (
-                        <div>
-                            <h1>{news.title}</h1>
-                            <p>{news.description}</p>
-                        </div>
+        return (<div className="card">
+            {
+                newsArticle.map(news => (
 
-                    ))
-                }
-            </div>
+                    <NewsItem {...news} />
+
+                ))
+            }
+        </div>
+
         )
     }
 
