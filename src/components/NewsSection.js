@@ -3,23 +3,29 @@ import { GlobalData } from '../GlobalState'
 
 function NewsSection() {
 
-    const [{ newsArticle }] = GlobalData()
+    const [{ isLoading, newsArticle }] = GlobalData()
 
     console.log(newsArticle);
 
-    return (
-        <div>
-            {
-                newsArticle.map(news => (
-                    <div>
-                        <h1>{news.title}</h1>
-                        <p>{news.description}</p>
-                    </div>
+    if (isLoading) {
+        return <h1> Loading...</h1>
+    } else {
 
-                ))
-            }
-        </div>
-    )
+        return (
+            <div>
+                {
+                    newsArticle.map(news => (
+                        <div>
+                            <h1>{news.title}</h1>
+                            <p>{news.description}</p>
+                        </div>
+
+                    ))
+                }
+            </div>
+        )
+    }
+
 }
 
 export default NewsSection

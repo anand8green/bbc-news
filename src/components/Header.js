@@ -5,6 +5,7 @@ function Header() {
     const [state, dispatch] = GlobalData()
 
     const handleCountryChange = (e) => {
+        dispatch({ type: "setLoading", value: true })
         const countryCode = e.target.value
         dispatch({ type: "updateCountry", value: countryCode })
         fetchingNews(countryCode)

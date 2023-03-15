@@ -5,15 +5,16 @@ const GlobalContext = createContext()
 const initialState = {
     countryCode: "in",
     countryName: "India",
-    isLoading: false,
-    newsArticle: []
+    isLoading: true,
+    newsArticle: [],
 }
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case "setLoading": return { ...state, isLoading: true }
+
         case "updateCountry": {
             let name = ""
-
             if (action.value === "us") {
                 name = "United States"
             }
@@ -33,7 +34,7 @@ const reducer = (state, action) => {
             return { ...state, countryCode: action.value, countryName: name }
         }
         case "updateNews": {
-            return { ...state, newsArticle: action.value }
+            return { ...state, newsArticle: action.value, isLoading: false }
         }
     }
 
