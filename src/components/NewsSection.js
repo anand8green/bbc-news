@@ -6,10 +6,9 @@ function NewsSection() {
 
     const [{ isLoading, newsArticle }] = GlobalData()
 
-    console.log(newsArticle);
-
     if (isLoading) {
         return <span className='loading'> Loading...</span>
+
     } else {
 
         return (<div className="card">

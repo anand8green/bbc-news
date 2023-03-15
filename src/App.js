@@ -7,7 +7,6 @@ import GlobalState from './GlobalState'
 
 function App() {
   return (
-
     <GlobalState>
       <Header />
       <Welcome />

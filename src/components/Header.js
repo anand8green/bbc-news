@@ -4,6 +4,8 @@ import logo from '../assets/bbc-logo.png'
 function Header() {
     const [, dispatch] = GlobalData()
 
+    // Updating the country information in global state
+
     const handleCountryChange = (e) => {
         dispatch({ type: "setLoading", value: true })
         const countryCode = e.target.value
@@ -11,7 +13,7 @@ function Header() {
         fetchingNews(countryCode)
     }
 
-    // Getting News Article
+    // Fetching News Article
 
     const fetchingNews = async (countryCode) => {
         const res = await fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=2f4a65c8a8f9459b91b9f85669d3d4c8`)
@@ -35,9 +37,7 @@ function Header() {
                     <div className="list">
                         <label className='countryLabel'> Choose a country
                             <select name="countries"
-                                onChange={handleCountryChange}
-
-                            >
+                                onChange={handleCountryChange}>
                                 <option value="in">India</option>
                                 <option value="us">US</option>
                                 <option value="gb">UK</option>
