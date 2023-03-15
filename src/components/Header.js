@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { GlobalData } from '../GlobalState'
 
 function Header() {
-
-    const [country, setCountry] = useState("in")
+    const [state, dispatch] = GlobalData()
 
     const handleCountryChange = (e) => {
-        setCountry(e.target.value)
+
+        const countryCode = e.target.value
+        dispatch({ type: "updateCountry", value: countryCode })
+
     }
+
+    useEffect(() => {
+
+    }, [])
 
     return (
         <header className="container">
@@ -17,7 +24,10 @@ function Header() {
                     </div>
                     <div className="list">
                         <label> Choose a country </label>
-                        <select name="countries" onChange={handleCountryChange}>
+                        <select name="countries"
+                            onChange={handleCountryChange}
+
+                        >
                             <option value="in">India</option>
                             <option value="us">US</option>
                             <option value="gb">UK</option>

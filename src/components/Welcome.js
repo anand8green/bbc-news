@@ -1,9 +1,16 @@
 import React from 'react'
+import { GlobalData } from '../GlobalState'
 
 function Welcome() {
+
+    const [state, dispatch] = GlobalData()
+    const { countryName } = state
+
+    console.log(state);
+
     return (
         <div>
-            Welcome text with selected country will be here
+            Welcome to BBC, {countryName}
         </div>
     )
 }
