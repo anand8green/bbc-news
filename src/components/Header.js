@@ -5,14 +5,23 @@ function Header() {
     const [state, dispatch] = GlobalData()
 
     const handleCountryChange = (e) => {
-
         const countryCode = e.target.value
         dispatch({ type: "updateCountry", value: countryCode })
+        fetchingNews(countryCode)
+    }
+
+    // Getting News Article
+
+    const fetchingNews = async (countryCode) => {
+        const res = await fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=2f4a65c8a8f9459b91b9f85669d3d4c8`)
+        const data = await res.json()
+        console.log(data);
+        dispatch({ type: "updateNews", value: data.articles.slice(0, 5) })
 
     }
 
     useEffect(() => {
-
+        fetchingNews("in")
     }, [])
 
     return (

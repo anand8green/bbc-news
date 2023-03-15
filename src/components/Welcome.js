@@ -3,10 +3,7 @@ import { GlobalData } from '../GlobalState'
 
 function Welcome() {
 
-    const [state, dispatch] = GlobalData()
-    const { countryName } = state
-
-    console.log(state);
+    const [{ countryName }, dispatch] = GlobalData()
 
     return (
         <div>

@@ -32,6 +32,9 @@ const reducer = (state, action) => {
 
             return { ...state, countryCode: action.value, countryName: name }
         }
+        case "updateNews": {
+            return { ...state, newsArticle: action.value }
+        }
     }
 
 }
