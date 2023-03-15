@@ -8,7 +8,8 @@ function Welcome() {
     return (
         <div className="container">
             <div className="wrapper">
-                Welcome to BBC, {countryName}
+                <h4> Welcome to BBC, {countryName}</h4>
+
             </div>
         </div>
     )

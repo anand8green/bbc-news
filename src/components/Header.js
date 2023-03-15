@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { GlobalData } from '../GlobalState'
-
+import logo from '../assets/bbc-logo.png'
 function Header() {
-    const [state, dispatch] = GlobalData()
+    const [, dispatch] = GlobalData()
 
     const handleCountryChange = (e) => {
         dispatch({ type: "setLoading", value: true })
@@ -26,24 +26,25 @@ function Header() {
     }, [])
 
     return (
-        <header className="container">
+        <header className="headerContainer">
             <div className="wrapper">
-                <div className="content">
+                <div className="headerContent">
                     <div className="logo">
-                        BBC
+                        <img src={logo} alt="BBC" width={118} height={36} />
                     </div>
                     <div className="list">
-                        <label> Choose a country </label>
-                        <select name="countries"
-                            onChange={handleCountryChange}
+                        <label className='countryLabel'> Choose a country
+                            <select name="countries"
+                                onChange={handleCountryChange}
 
-                        >
-                            <option value="in">India</option>
-                            <option value="us">US</option>
-                            <option value="gb">UK</option>
-                            <option value="fr">France</option>
-                            <option value="au">Australia</option>
-                        </select>
+                            >
+                                <option value="in">India</option>
+                                <option value="us">US</option>
+                                <option value="gb">UK</option>
+                                <option value="fr">France</option>
+                                <option value="au">Australia</option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>
